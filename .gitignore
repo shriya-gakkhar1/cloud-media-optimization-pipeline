@@ -1,0 +1,16 @@
+# Protect private AWS keys
+backend/.env
+.env
+
+# Protect local SQLite transactional database
+backend/project.db
+*.db
+
+# Python background artifacts
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node/React frontend dependencies & builds
+frontend/node_modules/
+frontend/dist/
