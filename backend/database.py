@@ -1,26 +1,23 @@
-from sqlalchemy import create_engine, Column, String, DateTime
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-import datetime
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, declarative_base
 
-DATABASE_URL = "sqlite:///./project.db"
+from config import settings
 
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+engine = create_engine(
+    settings.DATABASE_URL,
+    connect_args={"check_same_thread": False}
+)
+
+SessionLocal = sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine
+)
+
 Base = declarative_base()
 
-class MediaTask(Base):
-    """
-    The Database Table Model that tracks the real-time lifecycle 
-    of every single uploaded image asset.
-    """
-    __tablename__ = "media_tasks"
-
-    id = Column(String, primary_key=True, index=True) # The unique Celery Task ID
-    filename = Column(String, index=True)
-    status = Column(String, default="processing")    # processing, completed, failed
-    optimized_url = Column(String, nullable=True)     # The final live public cloud link
-    created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
 def init_db():
+    from db_models import MediaTask
+
     Base.metadata.create_all(bind=engine)

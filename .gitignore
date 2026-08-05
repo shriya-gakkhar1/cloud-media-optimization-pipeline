@@ -1,16 +1,25 @@
-# Protect private AWS keys
+# AWS credentials
 backend/.env
 .env
 
-# Protect local SQLite transactional database
-backend/project.db
-*.db
+# Python virtual environments
+.venv/
+backend/.venv/
 
-# Python background artifacts
+# Python cache
 __pycache__/
 *.pyc
 .pytest_cache/
 
-# Node/React frontend dependencies & builds
+# Databases
+backend/project.db
+backend/mediaflow.db
+*.db
+*.sqlite3
+
+# VS Code
+.vscode/
+
+# Node
 frontend/node_modules/
 frontend/dist/
