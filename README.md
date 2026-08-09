@@ -120,7 +120,7 @@ Docker
 Docker Compose
 Git
 GitHub
-🔄 Processing Workflow
+## Processing Workflow
 1. Upload
 
 The user selects an image from the React frontend.
@@ -170,8 +170,7 @@ FAILED
 Once processing is complete, the backend generates a secure presigned S3 URL.
 
 The frontend uses this URL to display the optimized image.
-
-📊 Processing Metrics
+## Processing Metrics
 
 MediaFlow tracks performance information for every processing task.
 
@@ -215,7 +214,7 @@ cloud-media-optimization-pipeline/
 ├── .gitignore
 ├── LICENSE
 └── README.md
-🚀 Local Setup
+## Local Setup
 Prerequisites
 
 Make sure the following are installed:
@@ -355,7 +354,7 @@ Example:
     "optimized_url": "https://..."
   }
 }
-🔐 Security
+## Security
 
 MediaFlow keeps AWS credentials outside the source code using environment variables.
 
@@ -395,7 +394,7 @@ Update Database
 Generate Presigned URL
       ↓
 Frontend Displays Optimized Asset
-🧪 Testing
+## Testing
 
 The complete pipeline has been tested locally across:
 
@@ -413,7 +412,7 @@ AWS S3
         ↓
 Database
 
-Example successful processing:
+## Example successful processing:
 
 Status: COMPLETED
 Processing Time: 89.68 ms
@@ -428,14 +427,6 @@ Added task level processing and performance metrics
 Built a React frontend for monitoring processing status
 Added PostgreSQL compatibility for future cloud deployment
 Containerized Redis for reproducible local development
-📄 License
+## License
 
 Distributed under the MIT License. See the LICENSE file for full licensing terms.
-
-
-Then just run:
-
-
-git add README.md
-git commit -m "docs: update MediaFlow documentation"
-git push origin main
