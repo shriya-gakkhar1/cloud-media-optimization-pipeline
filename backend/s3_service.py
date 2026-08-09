@@ -36,7 +36,11 @@ def upload_processed_file(file_obj, filename):
 
 
 def get_public_url(filename):
-    return (
-        f"https://{settings.S3_BUCKET}.s3."
-        f"{settings.AWS_REGION}.amazonaws.com/{filename}"
+    return s3_client.generate_presigned_url(
+        "get_object",
+        Params={
+            "Bucket": settings.S3_BUCKET,
+            "Key": filename,
+        },
+        ExpiresIn=3600,
     )

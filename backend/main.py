@@ -90,7 +90,9 @@ def check_processing_status(
     task_id: str,
     db: Session = Depends(get_db)
 ):
-    task = db.query(MediaTask).filter(MediaTask.id == task_id).first()
+    task = db.query(MediaTask).filter(
+        MediaTask.id == task_id
+    ).first()
 
     if not task:
         raise HTTPException(
@@ -103,6 +105,14 @@ def check_processing_status(
         "data": {
             "task_id": task.id,
             "status": task.status,
-            "optimized_url": task.optimized_url
+            "original_filename": task.original_filename,
+            "optimized_url": task.optimized_url,
+            "original_size": task.original_size,
+            "optimized_size": task.optimized_size,
+            "compression_percentage": task.compression_percentage,
+            "processing_time_ms": task.processing_time_ms,
+            "error_message": task.error_message,
+            "created_at": task.created_at,
+            "completed_at": task.completed_at
         }
     }
