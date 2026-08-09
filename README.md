@@ -76,6 +76,7 @@ MediaFlow separates image processing from the main API request using FastAPI, Re
                 │   React UI     │
                 │ Result + Stats │
                 └────────────────┘
+```
 
 ## 📸 Application Screenshots
 
